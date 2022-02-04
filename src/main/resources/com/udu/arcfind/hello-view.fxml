@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0"
+            prefWidth="622.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.udu.arcfind.ui.UIController">
+    <GridPane layoutX="14.0" layoutY="109.0" prefHeight="25.0" prefWidth="476.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.0" minWidth="10.0" prefWidth="223.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="0.0" prefWidth="11.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="242.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <CheckBox fx:id="subdirectoryBoolean" mnemonicParsing="false"
+                  onMouseClicked="#onSubdirectoriesCheckBoxClick" prefHeight="17.0" prefWidth="220.0"
+                  selected="true" text="Search In Subdirectories"/>
+        <CheckBox fx:id="archiveBoolean" mnemonicParsing="false" onMouseClicked="#onArchivesCheckBoxClick"
+                  prefHeight="17.0" prefWidth="212.0" selected="true" text="Search In Archives"
+                  GridPane.columnIndex="2"/>
+    </GridPane>
+    <GridPane layoutX="14.0" layoutY="14.0" prefHeight="89.0" prefWidth="592.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.0" minWidth="10.0" prefWidth="466.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="20.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="106.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="47.0" minHeight="0.0" prefHeight="18.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="111.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="155.0" minHeight="0.0" prefHeight="22.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="309.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label text="Directory Finding In"/>
+        <TextField fx:id="directoryInput" onAction="#onEnter" prefHeight="25.0" prefWidth="458.0"
+                   GridPane.rowIndex="1"/>
+        <Label text="Search In Directory With" GridPane.rowIndex="3"/>
+        <Button fx:id="fileExplorerButton" mnemonicParsing="false" onMouseClicked="#onFileExplorerButton"
+                prefHeight="25.0" prefWidth="108.0" text="File Explorer" GridPane.columnIndex="2"
+                GridPane.rowIndex="1"/>
+        <TextField fx:id="searchInput" onAction="#onEnter" prefHeight="34.0" prefWidth="377.0"
+                   GridPane.rowIndex="4"/>
+        <Button fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#onSearchButton" prefHeight="25.0"
+                prefWidth="113.0" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+    </GridPane>
+    <TableView fx:id="foundLinesTable" layoutX="14.0" layoutY="139.0" prefHeight="196.0" prefWidth="592.0">
+        <placeholder>
+            <Label text="Empty search"/>
+        </placeholder>
+        <columns>
+            <TableColumn fx:id="foundLinesTableMatchingLines" prefWidth="456.0" text="Matching Lines"/>
+            <TableColumn fx:id="foundLinesTableFileName" minWidth="0.0" prefWidth="135.0" text="File Name"/>
+            <TableColumn fx:id="foundLinesTableFilePath" minWidth="0.0" prefWidth="0.0" text="File Path"/>
+        </columns>
+    </TableView>
+    <TableView fx:id="fileTable" layoutX="14.0" layoutY="334.0" prefHeight="262.0" prefWidth="592.0">
+        <placeholder>
+            <Label text="A selected file's content will show here"/>
+        </placeholder>
+        <columns>
+            <TableColumn fx:id="fileTableNumber" minWidth="2.0" prefWidth="26.0" text="#"/>
+            <TableColumn fx:id="fileTableFileName" prefWidth="565.0" text="File Path"/>
+        </columns>
+    </TableView>
+    <CheckBox fx:id="fileMaskBoolean" layoutX="25.0" layoutY="607.0" mnemonicParsing="false"
+              onMouseClicked="#onFileMaskCheckBoxClick" prefHeight="17.0" prefWidth="95.0" text="File Mask ."/>
+    <TextField fx:id="fileMaskInput" layoutX="113.0" layoutY="603.0" onAction="#onEnter" prefHeight="25.0"
+               prefWidth="66.0" promptText="txt"/>
+    <Button fx:id="githubButton" layoutX="544.0" layoutY="603.0" mnemonicParsing="false"
+            onMouseClicked="#onGithubButtonClick" text="Github"/>
+    <Button fx:id="openSelectedFileButton" disable="true" layoutX="399.0" layoutY="603.0" mnemonicParsing="false"
+            onMousePressed="#onSelectedFileOpenClick" text="Open Selected File"/>
+</AnchorPane>
