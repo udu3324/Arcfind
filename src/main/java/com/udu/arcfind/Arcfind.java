@@ -31,6 +31,8 @@ public class Arcfind {
     public static String uuidSeperator = UUID.randomUUID().toString().replace("-", "");
 
     public static void main(String[] args) {
+        System.out.println("Arcfind has started.");
+
         //create ui in a thread to not interrupt code below
         new Thread(() -> StartUI.main(args)).start();
 
