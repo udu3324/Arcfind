@@ -15,7 +15,7 @@
 ## About
 Arcfind is an application that finds a string in a directory. It can also find it in subdirectories and specific archive types like Jars, Gzip, 7z, and Zip. This is super useful for searching in a log directory with tons of archived logs.
 
-**UI**
+**UI**     
 The UI of Arcfind is made with javafx and is simple to use.
 ![demo](https://raw.githubusercontent.com/udu3324/Arcfind/master/src/main/resources/com/udu/arcfind/demo1.png)
 
